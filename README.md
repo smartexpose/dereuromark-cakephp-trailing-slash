@@ -4,7 +4,7 @@ Legacy support for Cake apps that still use/need trailing slash routing.
 
 License: MIT
 
-CakePHP: 2.x (tested with 2.3)
+CakePHP: 2.x (tested with 2.7.11)
 
 ## Disclaimer
 **Do not use this for new projects!** We just had to keep the support for legacy 1.2 apps in 2.x.
