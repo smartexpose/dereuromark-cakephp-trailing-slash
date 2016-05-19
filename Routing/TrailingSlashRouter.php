@@ -3,19 +3,19 @@ App::uses('Router', 'Routing');
 
 class TrailingSlashRouter extends Router {
 
-	/**
-	 * If a trailing slash should be appended to extensionless urls
-	 *
-	 * @var boolean
-	 */
+/**
+ * If a trailing slash should be appended to extensionless urls
+ *
+ * @var boolean
+ */
  	protected static $_addTrailingSlash = false;
 
-	/**
-	 * Set the route class to enable/disable trailing slashs or return the current behavior
-	 *
-	 * @param boolean $value If trailing slashes should be used or not
-	 * @return mixed void|boolean
-	 */
+/**
+ * Set the route class to enable/disable trailing slashs or return the current behavior
+ *
+ * @param boolean $value If trailing slashes should be used or not
+ * @return mixed void|boolean
+ */
 	public static function addTrailingSlash($value = null) {
 		if (is_null($value)) {
 			return self::$_addTrailingSlash;
@@ -23,36 +23,36 @@ class TrailingSlashRouter extends Router {
 		self::$_addTrailingSlash = $value;
 	}
 
-	/**
-	 * Finds URL for specified action.
-	 *
-	 * Returns an URL pointing to a combination of controller and action. Param
-	 * $url can be:
-	 *
-	 * - Empty - the method will find address to actual controller/action.
-	 * - '/' - the method will find base URL of application.
-	 * - A combination of controller/action - the method will find url for it.
-	 *
-	 * There are a few 'special' parameters that can change the final URL string that is generated
-	 *
-	 * - `base` - Set to false to remove the base path from the generated url. If your application
-	 *   is not in the root directory, this can be used to generate urls that are 'cake relative'.
-	 *   cake relative urls are required when using requestAction.
-	 * - `?` - Takes an array of query string parameters
-	 * - `#` - Allows you to set url hash fragments.
-	 * - `full_base` - If true the `FULL_BASE_URL` constant will be prepended to generated urls.
-	 *
-	 * @overwrite
-	 * @param string|array $url Cake-relative URL, like "/products/edit/92" or "/presidents/elect/4"
-	 *   or an array specifying any of the following: 'controller', 'action',
-	 *   and/or 'plugin', in addition to named arguments (keyed array elements),
-	 *   and standard URL arguments (indexed array elements)
-	 * @param bool|array $full If (bool) true, the full base URL will be prepended to the result.
-	 *   If an array accepts the following keys
-	 *    - escape - used when making urls embedded in html escapes query string '&'
-	 *    - full - if true the full base URL will be prepended.
-	 * @return string Full translated URL with base path.
-	 */
+/**
+ * Finds URL for specified action.
+ *
+ * Returns an URL pointing to a combination of controller and action. Param
+ * $url can be:
+ *
+ * - Empty - the method will find address to actual controller/action.
+ * - '/' - the method will find base URL of application.
+ * - A combination of controller/action - the method will find url for it.
+ *
+ * There are a few 'special' parameters that can change the final URL string that is generated
+ *
+ * - `base` - Set to false to remove the base path from the generated url. If your application
+ *   is not in the root directory, this can be used to generate urls that are 'cake relative'.
+ *   cake relative urls are required when using requestAction.
+ * - `?` - Takes an array of query string parameters
+ * - `#` - Allows you to set url hash fragments.
+ * - `full_base` - If true the `FULL_BASE_URL` constant will be prepended to generated urls.
+ *
+ * @overwrite
+ * @param string|array $url Cake-relative URL, like "/products/edit/92" or "/presidents/elect/4"
+ *   or an array specifying any of the following: 'controller', 'action',
+ *   and/or 'plugin', in addition to named arguments (keyed array elements),
+ *   and standard URL arguments (indexed array elements)
+ * @param bool|array $full If (bool) true, the full base URL will be prepended to the result.
+ *   If an array accepts the following keys
+ *    - escape - used when making urls embedded in html escapes query string '&'
+ *    - full - if true the full base URL will be prepended.
+ * @return string Full translated URL with base path.
+ */
 	public static function url($url = null, $full = false) {
 		if (!self::$initialized) {
 			self::_loadRoutes();
