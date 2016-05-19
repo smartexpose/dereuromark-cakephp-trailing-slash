@@ -18,9 +18,9 @@ class TrailingSlashRouter extends Router {
  */
 	public static function addTrailingSlash($value = null) {
 		if (is_null($value)) {
-			return self::$_addTrailingSlash;
+			return static::$_addTrailingSlash;
 		}
-		self::$_addTrailingSlash = $value;
+		static::$_addTrailingSlash = $value;
 	}
 
 /**
@@ -144,7 +144,7 @@ class TrailingSlashRouter extends Router {
 			if ($match === false) {
 				$output = static::_handleNoRoute($url);
 			}
-			if (empty($extension) && self::$_addTrailingSlash && substr($output, -1, 1) !== '/') {
+			if (empty($extension) && static::$_addTrailingSlash && substr($output, -1, 1) !== '/') {
 				$output .= '/';
 			}
 		} else {
